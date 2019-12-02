@@ -14,10 +14,10 @@ import com.marcelo.cursomc.services.exceptions.ObjectNotFoundException;
 public class CategoriaService {
 
 	@Autowired
-	private CategoriaRepository repo;
+	private CategoriaRepository categoriaRepository;
 
-	public Categoria find(Integer id) {
-		Optional<Categoria> categoria = repo.findById(id);
+	public Categoria findById(Integer id) {
+		Optional<Categoria> categoria = categoriaRepository.findById(id);
 		return categoria.orElseThrow(() -> new ObjectNotFoundException("Object not found! Id: " + id));
 	}
 }
