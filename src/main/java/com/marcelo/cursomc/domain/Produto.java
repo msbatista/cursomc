@@ -2,7 +2,9 @@ package com.marcelo.cursomc.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -25,12 +28,11 @@ public class Produto implements Serializable {
 
 	@JsonBackReference
 	@ManyToMany
-	@JoinTable(
-			name = "PRODUTO_CATEGORIA", 
-			joinColumns = @JoinColumn(name = "produto_id"), 
-			inverseJoinColumns = @JoinColumn(name = "categoria_id")
-	)
+	@JoinTable(name = "PRODUTO_CATEGORIA", joinColumns = @JoinColumn(name = "produto_id"), inverseJoinColumns = @JoinColumn(name = "categoria_id"))
 	private final List<Categoria> categorias = new ArrayList<Categoria>();
+	
+	@OneToMany(mappedBy = "id.produto")
+	private final Set<ItemPedido> itens = new HashSet<>();
 
 	public Produto() {
 
@@ -40,6 +42,14 @@ public class Produto implements Serializable {
 		this.id = id;
 		this.nome = nome;
 		this.price = price;
+	}
+
+	public List<Pedido> getPedidos() {
+		List<Pedido> pedidos = new ArrayList<Pedido>();
+		for (ItemPedido item : this.itens) {
+			pedidos.add(item.getPedido());
+		}
+		return pedidos;
 	}
 
 	public Integer getId() {
@@ -70,6 +80,10 @@ public class Produto implements Serializable {
 		return categorias;
 	}
 
+	public Set<ItemPedido> getItens() {
+		return itens;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -86,5 +100,4 @@ public class Produto implements Serializable {
 		}
 		return false;
 	}
-
 }
