@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 
+import com.marcelo.cursomc.domain.enums.EstadoPagamento;
+
 @Entity
 public class PagamentoComBoleto extends Pagamento {
 
@@ -16,7 +18,7 @@ public class PagamentoComBoleto extends Pagamento {
 
 	public PagamentoComBoleto(
 			Integer id, 
-			Integer estadoPagamento,
+			EstadoPagamento estadoPagamento,
 			Pedido pedido,
 			Date dataVencimento, 
 			Date dataPagamento) {

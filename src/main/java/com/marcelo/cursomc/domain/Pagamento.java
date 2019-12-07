@@ -14,7 +14,7 @@ import com.marcelo.cursomc.domain.enums.EstadoPagamento;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Pagamento implements Serializable {
+public abstract class Pagamento implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -28,10 +28,10 @@ public class Pagamento implements Serializable {
 	public Pagamento() {
 	}
 
-	public Pagamento(Integer id, Integer estadoPagamento, Pedido pedido) {
+	public Pagamento(Integer id, EstadoPagamento estadoPagamento, Pedido pedido) {
 		super();
 		this.id = id;
-		this.estadoPagamento = estadoPagamento;
+		this.estadoPagamento = estadoPagamento.getCodigo();
 		this.pedido = pedido;
 	}
 
@@ -39,8 +39,8 @@ public class Pagamento implements Serializable {
 		return EstadoPagamento.toEnum(estadoPagamento);
 	}
 
-	public void setEstadoPagamento(Integer estadoPagamento) {
-		this.estadoPagamento = estadoPagamento;
+	public void setEstadoPagamento(EstadoPagamento estadoPagamento) {
+		this.estadoPagamento = estadoPagamento.getCodigo();
 	}
 
 	public Pedido getPedido() {

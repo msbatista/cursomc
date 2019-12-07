@@ -2,6 +2,8 @@ package com.marcelo.cursomc.domain;
 
 import javax.persistence.Entity;
 
+import com.marcelo.cursomc.domain.enums.EstadoPagamento;
+
 @Entity
 public class PagamentoComCartao extends Pagamento {
 
@@ -11,8 +13,9 @@ public class PagamentoComCartao extends Pagamento {
 	public PagamentoComCartao() {
 	}
 
-	public PagamentoComCartao(Integer id, Integer estadoPagamento, Pedido pedido) {
+	public PagamentoComCartao(Integer id, EstadoPagamento estadoPagamento, Pedido pedido, Integer numerorDeParcelas) {
 		super(id, estadoPagamento, pedido);
+		this.numeroDeParcelas = numerorDeParcelas;
 	}
 
 	public Integer getNumeroDeParcelas() {
