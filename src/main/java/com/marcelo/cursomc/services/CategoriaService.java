@@ -2,7 +2,9 @@ package com.marcelo.cursomc.services;
 
 import java.util.Optional;
 
+import com.marcelo.cursomc.services.exceptions.DataIntegrityException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.marcelo.cursomc.domain.Categoria;
@@ -24,7 +26,16 @@ public class CategoriaService {
 	public Categoria insert(Categoria categoria) {
 		return categoriaRepository.save(categoria);
 	}
+
 	public Categoria update(Categoria categoria) {
 		return categoriaRepository.save(categoria);
+	}
+
+	public void deleteById(Integer id) {
+		try {
+			categoriaRepository.deleteById(id);
+		} catch (DataIntegrityViolationException e) {
+			throw new DataIntegrityException("Can not delete object with nested items associated!");
+		}
 	}
 }
