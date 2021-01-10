@@ -1,6 +1,7 @@
 package com.marcelo.cursomc.resources;
 
 import com.marcelo.cursomc.domain.Cliente;
+import com.marcelo.cursomc.domain.dto.ClienteNewDTO;
 import com.marcelo.cursomc.domain.dto.ClienteDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -8,9 +9,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.marcelo.cursomc.services.ClienteService;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.io.Serializable;
+import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,6 +27,22 @@ public class ClienteResource implements Serializable  {
 	public ResponseEntity<Cliente> findById(@PathVariable Integer id) {
 		Cliente cliente = clienteService.findById(id);
 		return ResponseEntity.ok(cliente);
+	}
+
+	@RequestMapping(method = RequestMethod.POST)
+	public ResponseEntity<Void> insert(@Valid @RequestBody ClienteNewDTO clienteNewDTO) {
+		Cliente cliente = clienteService.fromDTO(clienteNewDTO);
+
+		cliente.setId(null);
+		cliente = clienteService.insert(cliente);
+
+		URI uri = ServletUriComponentsBuilder
+				.fromCurrentRequest()
+				.path("/{id}")
+				.buildAndExpand(cliente.getId())
+				.toUri();
+
+		return ResponseEntity.created(uri).build();
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
