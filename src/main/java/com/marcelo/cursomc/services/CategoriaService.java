@@ -24,4 +24,7 @@ public class CategoriaService {
 	public Categoria insert(Categoria categoria) {
 		return categoriaRepository.save(categoria);
 	}
+	public Categoria update(Categoria categoria) {
+		return categoriaRepository.save(categoria);
+	}
 }
