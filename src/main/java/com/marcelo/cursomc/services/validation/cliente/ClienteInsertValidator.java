@@ -3,7 +3,7 @@ package com.marcelo.cursomc.services.validation.cliente;
 import com.marcelo.cursomc.domain.dto.ClienteNewDTO;
 import com.marcelo.cursomc.domain.enums.TipoCliente;
 import com.marcelo.cursomc.resources.exception.FieldExceptionMessage;
-import com.marcelo.cursomc.services.validation.cliente.ClienteInsert;
+import com.marcelo.cursomc.services.validation.cliente.utils.BR;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

@@ -1,4 +1,4 @@
-package com.marcelo.cursomc.services.validation.cliente;
+package com.marcelo.cursomc.services.validation.cliente.utils;
 // Créditos: https://gist.github.com/clairtonluz/0e82a03e8b6c148608f1
 public class BR {
    public static class CpfCnpj {
