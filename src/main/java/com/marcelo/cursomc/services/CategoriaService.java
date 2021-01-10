@@ -10,7 +10,6 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.marcelo.cursomc.domain.Categoria;
@@ -53,6 +52,7 @@ public class CategoriaService {
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Sort.Direction.valueOf(direction), orderBy);
 		return categoriaRepository.findAll(pageRequest);
 	}
+
 	public Categoria fromDTO(CategoriaDTO categoriaDTO) {
 		return  new Categoria(categoriaDTO.getId(), categoriaDTO.getNome());
 	}
