@@ -58,7 +58,7 @@ public class ClienteService {
 		try {
 			clienteRepository.deleteById(id);
 		} catch (DataIntegrityViolationException e) {
-			throw new DataIntegrityException("Can not delete object with nested items associated!");
+			throw new DataIntegrityException("Can not delete client object with orders associated!");
 		}
 	}
 
