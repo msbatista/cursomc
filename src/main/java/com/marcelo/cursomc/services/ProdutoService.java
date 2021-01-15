@@ -1,7 +1,5 @@
 package com.marcelo.cursomc.services;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
