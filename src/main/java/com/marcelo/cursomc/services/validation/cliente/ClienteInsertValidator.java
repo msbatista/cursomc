@@ -40,7 +40,6 @@ public class ClienteInsertValidator implements ConstraintValidator<ClienteInsert
             fieldExceptionMessageList.add(new FieldExceptionMessage("email", "Email already exits"));
         }
 
-
         for (FieldExceptionMessage fieldExceptionMessage: fieldExceptionMessageList) {
             context.disableDefaultConstraintViolation();
             context.buildConstraintViolationWithTemplate(fieldExceptionMessage.getMessage())
