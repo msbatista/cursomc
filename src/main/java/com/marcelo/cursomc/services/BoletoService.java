@@ -13,5 +13,7 @@ public class BoletoService {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(instantePedido);
         calendar.add(Calendar.DAY_OF_MONTH, 7);
+
+        pagamentoComBoleto.setDataVencimento(calendar.getTime());
     }
 }
