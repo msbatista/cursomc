@@ -21,9 +21,11 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class Pedido implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date instante;
 	
@@ -119,9 +121,9 @@ public class Pedido implements Serializable {
 
 	@Override
 	public boolean equals(Object o) {
-		if (o != null && o instanceof Pedido) {
+		if (o instanceof Pedido) {
 			Pedido p = (Pedido) o;
-			return this.id == p.id;
+			return this.id.equals(p.id);
 		}
 		return false;
 	}

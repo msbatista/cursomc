@@ -1,4 +1,4 @@
-package com.marcelo.cursomc.domain.dto;
+package com.marcelo.cursomc.dto;
 
 import com.marcelo.cursomc.domain.Produto;
 

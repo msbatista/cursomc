@@ -23,7 +23,12 @@ public class ItemPedido implements Serializable {
 	public ItemPedido() {
 	}
 
-	public ItemPedido(Pedido pedido, Produto produto, double desconto, Integer quantidade, double preco) {
+	public ItemPedido(
+			Pedido pedido,
+			Produto produto,
+			double desconto,
+			Integer quantidade,
+			double preco) {
 		super();
 		this.id.setPedido(pedido);
 		this.id.setProduto(produto);
@@ -77,7 +82,7 @@ public class ItemPedido implements Serializable {
 
 	@Override
 	public boolean equals(Object o) {
-		if (o != null && o instanceof ItemPedido) {
+		if (o instanceof ItemPedido) {
 			ItemPedido item = (ItemPedido) o;
 			return this.id.equals(item.id);
 		}

@@ -1,7 +1,7 @@
 package com.marcelo.cursomc.resources;
 
 import com.marcelo.cursomc.domain.Produto;
-import com.marcelo.cursomc.domain.dto.ProdutoDTO;
+import com.marcelo.cursomc.dto.ProdutoDTO;
 import com.marcelo.cursomc.resources.utils.Url;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

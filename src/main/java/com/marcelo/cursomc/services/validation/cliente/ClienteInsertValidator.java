@@ -1,7 +1,7 @@
 package com.marcelo.cursomc.services.validation.cliente;
 
 import com.marcelo.cursomc.domain.Cliente;
-import com.marcelo.cursomc.domain.dto.ClienteNewDTO;
+import com.marcelo.cursomc.dto.ClienteNewDTO;
 import com.marcelo.cursomc.domain.enums.TipoCliente;
 import com.marcelo.cursomc.repository.ClienteRepository;
 import com.marcelo.cursomc.resources.exception.FieldExceptionMessage;

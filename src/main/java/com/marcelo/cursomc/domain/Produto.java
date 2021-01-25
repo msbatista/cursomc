@@ -28,8 +28,12 @@ public class Produto implements Serializable {
 
 	@JsonIgnore
 	@ManyToMany
-	@JoinTable(name = "PRODUTO_CATEGORIA", joinColumns = @JoinColumn(name = "produto_id"), inverseJoinColumns = @JoinColumn(name = "categoria_id"))
-	private final List<Categoria> categorias = new ArrayList<Categoria>();
+	@JoinTable(
+		name = "PRODUTO_CATEGORIA",
+		joinColumns = @JoinColumn(name = "produto_id"),
+		inverseJoinColumns = @JoinColumn(name = "categoria_id")
+	)
+	private final List<Categoria> categorias = new ArrayList<>();
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "id.produto")
@@ -90,15 +94,15 @@ public class Produto implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
 	@Override
 	public boolean equals(Object o) {
-		if (o != null && o instanceof Produto) {
+		if (o instanceof Produto) {
 			Produto p = (Produto) o;
-			return this.id == p.id;
+			return this.id.equals(p.id);
 		}
 		return false;
 	}

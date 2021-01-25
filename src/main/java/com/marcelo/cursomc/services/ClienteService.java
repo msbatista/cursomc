@@ -3,12 +3,11 @@ package com.marcelo.cursomc.services;
 import java.util.List;
 import java.util.Optional;
 
-import com.marcelo.cursomc.domain.Categoria;
 import com.marcelo.cursomc.domain.Cidade;
 import com.marcelo.cursomc.domain.Cliente;
 import com.marcelo.cursomc.domain.Endereco;
-import com.marcelo.cursomc.domain.dto.ClienteDTO;
-import com.marcelo.cursomc.domain.dto.ClienteNewDTO;
+import com.marcelo.cursomc.dto.ClienteDTO;
+import com.marcelo.cursomc.dto.ClienteNewDTO;
 import com.marcelo.cursomc.domain.enums.TipoCliente;
 import com.marcelo.cursomc.repository.EnderecoRepository;
 import com.marcelo.cursomc.services.exceptions.DataIntegrityException;

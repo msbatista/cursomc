@@ -1,6 +1,7 @@
 package com.marcelo.cursomc.domain;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -18,9 +19,11 @@ import com.marcelo.cursomc.domain.enums.EstadoPagamento;
 public abstract class Pagamento implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
 	@Id
 	private Integer id;
 	private Integer estadoPagamento;
+
 	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "pedido_id")
@@ -44,12 +47,29 @@ public abstract class Pagamento implements Serializable {
 	public void setEstadoPagamento(EstadoPagamento estadoPagamento) {
 		this.estadoPagamento = estadoPagamento.getCodigo();
 	}
-	@JsonIgnore
+
 	public Pedido getPedido() {
 		return pedido;
 	}
 
 	public void setPedido(Pedido pedido) {
 		this.pedido = pedido;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (o instanceof Pagamento) {
+			Pagamento p = (Pagamento) o;
+			return this.id.equals(p.id);
+		}
+		return false;
 	}
 }

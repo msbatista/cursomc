@@ -1,8 +1,8 @@
 package com.marcelo.cursomc.resources;
 
 import com.marcelo.cursomc.domain.Cliente;
-import com.marcelo.cursomc.domain.dto.ClienteNewDTO;
-import com.marcelo.cursomc.domain.dto.ClienteDTO;
+import com.marcelo.cursomc.dto.ClienteNewDTO;
+import com.marcelo.cursomc.dto.ClienteDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;

@@ -21,9 +21,10 @@ public class Estado implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "estado")
-	private final List<Cidade> cidades = new ArrayList<Cidade>();
+	private final List<Cidade> cidades = new ArrayList<>();
 
 	public Estado() {
 	}
@@ -64,9 +65,9 @@ public class Estado implements Serializable {
 
 	@Override
 	public boolean equals(Object o) {
-		if (o != null && o instanceof Estado) {
+		if (o instanceof Estado) {
 			Estado e = (Estado) o;
-			return this.id == e.id;
+			return this.id.equals(e.id);
 		}
 		return false;
 	}

@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.marcelo.cursomc.domain.Categoria;
-import com.marcelo.cursomc.domain.dto.CategoriaDTO;
+import com.marcelo.cursomc.dto.CategoriaDTO;
 import com.marcelo.cursomc.services.exceptions.DataIntegrityException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
