@@ -1,7 +1,6 @@
 package com.marcelo.cursomc.domain;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,10 +11,12 @@ import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.marcelo.cursomc.domain.enums.EstadoPagamento;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "@type")
 public abstract class Pagamento implements Serializable {
 
 	private static final long serialVersionUID = 1L;
